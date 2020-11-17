@@ -13,6 +13,7 @@ public class MainActivity extends AppCompatActivity {
     private String Tag = "now";
     private Button button1;
     private int count = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);     //儲存狀態
@@ -59,12 +60,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onDestroy(){
+    protected void onDestroy() {
         super.onDestroy();
-        Log.d(Tag,"onDestroy");
+        Log.d(Tag, "onDestroy");
     }
 
-    protected void your_function(){
+    protected void your_function() {
         //do something
         System.out.println("executed");
     }
