@@ -1,0 +1,11 @@
+<application>
+  <component name="CodeInsightSettings">
+    <option name="AUTO_POPUP_JAVADOC_INFO" value="true" />
+  </component>
+  <component name="DefaultFont">
+    <option name="FONT_SIZE" value="24" />
+  </component>
+  <component name="EditorSettings">
+    <option name="USE_SOFT_WRAPS" value="" />
+  </component>
+</application>
