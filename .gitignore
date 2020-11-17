@@ -12,3 +12,10 @@
 /captures
 .externalNativeBuild
 .cxx
+
+/.gradle
+/.idea
+/repository
+*~
+
+
