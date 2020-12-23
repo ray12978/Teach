@@ -26,7 +26,7 @@ public class Activity2 extends AppCompatActivity {
         your_function();
         Button chAct = binding.chgBtn2;
         chAct.setOnClickListener(v -> {
-            Intent intent = new Intent(this,MainActivity.class);
+            Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         });
     }
@@ -66,7 +66,6 @@ public class Activity2 extends AppCompatActivity {
         Log.d(Tag, "onPostResume");
     }
 
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -78,13 +77,11 @@ public class Activity2 extends AppCompatActivity {
         Log.d(Tag, "onConfigurationChanged");
     }
 
-
     @Override
     public void onContentChanged() {
         super.onContentChanged();
         Log.d(Tag, "onContentChanged");
     }
-
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {

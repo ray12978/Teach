@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);     //儲存狀態
-        /** //傳統findViewById
+        /** //傳統綁定View架構
          *  setContentView(R.layout.activity_main); //設定要連接的頁面(Activity)
          *  button1 = findViewById(R.id.button);    //設定物件連接的view
          *  TextView textView1 = findViewById(R.id.textView2);
@@ -30,14 +30,16 @@ public class MainActivity extends AppCompatActivity {
         /**
          *   View Binding 新的綁定View架構，減少程式碼量
          *   activity檔案命名需符合格式
-         *   activity_NAME.xml
+         *   e.g. activity_NAME.xml
          */
-        //Activity"Name"Binding
+
+        /**Activity[NAME]Binding binding = Activity[NAME]Binding.inflate(getLayoutInflater());*/
         ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        TextView textView1 = binding.textView2;
-        button1 = binding.button;
-        Button chAct  = binding.chgBtn;
+        TextView textView1 = binding.textView2; //區域物件
+        button1 = binding.button;           //全域物件
+        Button chAct = binding.chgBtn;     //區域物件
+
         Log.v(Tag, "onCreate");
         your_function();
         textView1.setText("0");
@@ -46,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
             textView1.setText(String.valueOf(count));
         });
         chAct.setOnClickListener(v -> {
-            Intent intent = new Intent(this,Activity2.class);
+            Intent intent = new Intent(this, Activity2.class);
             startActivity(intent);
         });
     }
@@ -86,7 +88,6 @@ public class MainActivity extends AppCompatActivity {
         Log.d(Tag, "onPostResume");
     }
 
-
     @Override
     protected void onDestroy() {
         super.onDestroy();
@@ -98,13 +99,11 @@ public class MainActivity extends AppCompatActivity {
         Log.d(Tag, "onConfigurationChanged");
     }
 
-
     @Override
     public void onContentChanged() {
         super.onContentChanged();
         Log.d(Tag, "onContentChanged");
     }
-
 
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
