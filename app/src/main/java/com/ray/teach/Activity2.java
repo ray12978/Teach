@@ -1,7 +1,5 @@
 package com.ray.teach;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
@@ -9,44 +7,26 @@ import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.ray.teach.databinding.ActivityMainBinding;
+import com.ray.teach.databinding.ActivityPage2Binding;
 
-
-public class MainActivity extends AppCompatActivity {
-    private String Tag = "Act1";
-    private Button button1;
-    private int count = 0;
+public class Activity2 extends AppCompatActivity {
+    String Tag = "Act2";
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);     //儲存狀態
-        /** //傳統findViewById
-         *  setContentView(R.layout.activity_main); //設定要連接的頁面(Activity)
-         *  button1 = findViewById(R.id.button);    //設定物件連接的view
-         *  TextView textView1 = findViewById(R.id.textView2);
-         */
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
 
-
-        /**
-         *   View Binding 新的綁定View架構，減少程式碼量
-         *   activity檔案命名需符合格式
-         *   activity_NAME.xml
-         */
-        //Activity"Name"Binding
-        ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
-        setContentView(binding.getRoot());
-        TextView textView1 = binding.textView2;
-        button1 = binding.button;
-        Button chAct  = binding.chgBtn;
+        ActivityPage2Binding binding = ActivityPage2Binding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());//需在Manifest宣告activity物件
         Log.v(Tag, "onCreate");
         your_function();
-        textView1.setText("0");
-        button1.setOnClickListener(v -> {       //監聽按鈕事件(lambda格式)
-            count++;
-            textView1.setText(String.valueOf(count));
-        });
+        Button chAct = binding.chgBtn2;
         chAct.setOnClickListener(v -> {
-            Intent intent = new Intent(this,Activity2.class);
+            Intent intent = new Intent(this,MainActivity.class);
             startActivity(intent);
         });
     }
